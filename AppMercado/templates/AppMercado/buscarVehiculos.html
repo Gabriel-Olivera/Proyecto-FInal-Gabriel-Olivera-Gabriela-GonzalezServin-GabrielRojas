@@ -1,0 +1,28 @@
+{% extends "AppMercado/padre.html"%}
+
+{% load static %}
+
+{% block Masthead %}
+<div class="container">
+
+    <div class="masthead-heading text-uppercase">TU MERCADO</div>
+    <div class="masthead-subheading">Resultados de busqueda vehiculos</div>
+{% endblock %}
+
+{% block contenido %}
+    Resultados de busqueda vehiculos
+    <div>------------------------------------------------ </div>
+    {% if vehiculos %}
+        <ul>
+            {% for vehiculo in vehiculos %}
+                <li>{{vehiculo.nombre}}</li>
+                <li>{{vehiculo.precio}}</li>
+                <li>{{vehiculo.email_contacto}}</li>
+                <br>
+            {% endfor %}
+        </ul>
+    {% else %}
+    No se encontraron publicaciones
+    {% endif %}
+{% endblock %}
+

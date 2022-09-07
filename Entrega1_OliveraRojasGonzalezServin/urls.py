@@ -29,4 +29,11 @@ urlpatterns = [
     path('mueblesFormulario/', mueblesFormulario, name='mueblesFormulario'),
     path('vehiculosFormulario/', vehiculosFormulario, name='vehiculosFormulario'),
     path('publicacionExitosa/', publicacionExitosa, name='publicacionExitosa'),
+    path("busquedaElectrodomesticos/", busquedaElectrodomesticos,name="busquedaElectrodomesticos"),
+    path("busquedaMuebles/", busquedaMuebles,name="busquedaMuebles"),  
+    path("busquedaVehiculos/", busquedaVehiculos,name="busquedaVehiculos"),
+    path("buscarElectrodomesticos/",buscarElectrodomesticos, name="buscarElectrodomesticos"),
+    path("buscarMuebles/",buscarMuebles, name="buscarMuebles"),
+    path("buscarVehiculos/",buscarVehiculos, name="buscarVehiculos"),
+    #path("resultadosBusqueda/", name="resultadosBusqueda"),
 ]

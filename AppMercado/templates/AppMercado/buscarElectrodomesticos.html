@@ -1,0 +1,28 @@
+{% extends "AppMercado/padre.html"%}
+
+{% load static %}
+
+{% block Masthead %}
+<div class="container">
+
+    <div class="masthead-heading text-uppercase">TU MERCADO</div>
+    <div class="masthead-subheading">Resultados de busqueda electrodomesticos</div>
+{% endblock %}
+
+{% block contenido %}
+    Resultados de busqueda electrodomesticos
+    <div>------------------------------------------------ </div>
+    {% if electrodomesticos %}
+        <ul>
+            {% for electro in electrodomesticos %}
+                <li>{{electro.nombre}}</li>
+                <li>{{electro.precio}}</li>
+                <li>{{electro.email_contacto}}</li>
+                <br>
+            {% endfor %}
+        </ul>
+    {% else %}
+    No se encontraron publicaciones
+    {% endif %}
+{% endblock %}
+

@@ -90,5 +90,44 @@ def publicacionExitosa(request):
     return render(request, "AppMercado/publicacionExitosa.html")
 
 
+def busquedaElectrodomesticos(request):
+    return render(request, "AppMercado/busquedaElectrodomesticos.html")
 
+def buscarElectrodomesticos(request):
+    if request.GET["nombre"]:
+        nombre=request.GET["nombre"]
+        electrodomesticos=Electrodomesticos.objects.filter(nombre=nombre)
+        #respuesta=f"Estoy publicando el mueble"
+        return render(request, "AppMercado/buscarElectrodomesticos.html", {"electrodomesticos":electrodomesticos})
+    else:
+        return render(request, "AppMercado/busquedaElectrodomesticos.html", {"mensaje":"Ingrese datos para realizar busqueda"})
+
+def busquedaMuebles(request):
+    return render(request, "AppMercado/busquedaMuebles.html")
+
+def buscarMuebles(request):
+    if request.GET["nombre"]:
+        nombre=request.GET["nombre"]
+        muebles=Muebles.objects.filter(nombre=nombre)
+        #respuesta=f"Estoy publicando el mueble"
+        return render(request, "AppMercado/buscarMuebles.html", {"muebles":muebles})
+    else:
+        return render(request, "AppMercado/busquedaMuebles.html", {"mensaje":"Ingrese datos para realizar busqueda"})
+
+
+def busquedaVehiculos(request):
+    return render(request, "AppMercado/busquedaVehiculos.html")
+
+def buscarVehiculos(request):
+    if request.GET["nombre"]:
+        nombre=request.GET["nombre"]
+        vehiculos=Vehiculos.objects.filter(nombre=nombre)
+
+        #print(vehiculos)
+        #respuesta=f"Estoy publicando el nombre {nombre}"
+        #print(respuesta)
+        #return HttpResponse(respuesta)
+        return render(request, "AppMercado/buscarVehiculos.html", {"vehiculos":vehiculos})
+    else:
+        return render(request, "AppMercado/busquedaVehiculos.html", {"mensaje":"Ingrese datos para realizar busqueda"})
 

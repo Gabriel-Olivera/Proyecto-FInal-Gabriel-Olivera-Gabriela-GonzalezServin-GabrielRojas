@@ -1,0 +1,21 @@
+{% extends "AppMercado/padre.html"%}
+
+{% load static %}
+
+{% block Masthead %}
+<div class="container">
+
+    <div class="masthead-heading text-uppercase">TU MERCADO</div>
+    <div class="masthead-subheading">Ingrese Electrodomestico a buscar!!</div>
+{% endblock %}
+
+{% block contenido %}
+    INGRESE NOMBRE DEL ELECTRODOMESTICO A BUSCAR (ej:Heladera)
+    <div>------------------------------------------------ </div>
+    <form action="{% url 'buscarElectrodomesticos' %}" method="GET">
+        <p> <input type="text" name="nombre" id="nombre"></p>
+        <p> <input type="submit" value="Buscar"></p>
+    </form>
+    {{ mensaje }}
+{% endblock %}
+
