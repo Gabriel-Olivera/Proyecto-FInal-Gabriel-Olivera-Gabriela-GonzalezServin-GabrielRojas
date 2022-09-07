@@ -1,5 +1,5 @@
 # Entrega1_Olivera-Rojas-GonzalezServin
-Avance 1ra entrega proyecto final
+1ra entrega proyecto final
 #Tu Mercado
 es nuestro primer proyecto. basados en paginas de mercados online
 
