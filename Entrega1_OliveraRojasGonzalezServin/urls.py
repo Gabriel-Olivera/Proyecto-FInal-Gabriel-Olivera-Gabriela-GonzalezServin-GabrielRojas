@@ -14,26 +14,39 @@ Including another URLconf
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
 from django.contrib import admin
-from django.urls import path
-from AppMercado.views import*
+from django.urls import path, include
+from AppMercado.views import *
 
 
 urlpatterns = [
-    path('admin/', admin.site.urls),
-    path('', inicio),
-    path('inicio/', inicio, name='inicio'),
-    path('electrodomesticos/', electrodomesticos, name='electrodomesticos'),
-    path('muebles/', muebles, name='muebles'),
-    path('vehiculos/', vehiculos, name='vehiculos'),
-    path('electrodomesticosFormulario/', electrodomesticosFormulario, name='electrodomesticosFormulario'),
-    path('mueblesFormulario/', mueblesFormulario, name='mueblesFormulario'),
-    path('vehiculosFormulario/', vehiculosFormulario, name='vehiculosFormulario'),
-    path('publicacionExitosa/', publicacionExitosa, name='publicacionExitosa'),
-    path("busquedaElectrodomesticos/", busquedaElectrodomesticos,name="busquedaElectrodomesticos"),
-    path("busquedaMuebles/", busquedaMuebles,name="busquedaMuebles"),  
-    path("busquedaVehiculos/", busquedaVehiculos,name="busquedaVehiculos"),
-    path("buscarElectrodomesticos/",buscarElectrodomesticos, name="buscarElectrodomesticos"),
-    path("buscarMuebles/",buscarMuebles, name="buscarMuebles"),
-    path("buscarVehiculos/",buscarVehiculos, name="buscarVehiculos"),
-    #path("resultadosBusqueda/", name="resultadosBusqueda"),
+    path("admin/", admin.site.urls),
+    path("", inicio),
+    path("inicio/", inicio, name="inicio"),
+    path("electrodomesticos/", electrodomesticos, name="electrodomesticos"),
+    path("muebles/", muebles, name="muebles"),
+    path("vehiculos/", vehiculos, name="vehiculos"),
+    path(
+        "electrodomesticosFormulario/",
+        electrodomesticosFormulario,
+        name="electrodomesticosFormulario",
+    ),
+    path("mueblesFormulario/", mueblesFormulario, name="mueblesFormulario"),
+    path("vehiculosFormulario/", vehiculosFormulario, name="vehiculosFormulario"),
+    path("publicacionExitosa/", publicacionExitosa, name="publicacionExitosa"),
+    path(
+        "busquedaElectrodomesticos/",
+        busquedaElectrodomesticos,
+        name="busquedaElectrodomesticos",
+    ),
+    path("busquedaMuebles/", busquedaMuebles, name="busquedaMuebles"),
+    path("busquedaVehiculos/", busquedaVehiculos, name="busquedaVehiculos"),
+    path(
+        "buscarElectrodomesticos/",
+        buscarElectrodomesticos,
+        name="buscarElectrodomesticos",
+    ),
+    path("buscarMuebles/", buscarMuebles, name="buscarMuebles"),
+    path("buscarVehiculos/", buscarVehiculos, name="buscarVehiculos"),
+    path("blog/", include("blog.urls"))
+    # path("resultadosBusqueda/", name="resultadosBusqueda"),
 ]
