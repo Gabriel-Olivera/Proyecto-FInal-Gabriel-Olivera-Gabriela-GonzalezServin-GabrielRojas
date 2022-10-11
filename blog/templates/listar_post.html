@@ -1,15 +1,51 @@
-<!DOCTYPE html>
-<html lang="en">
-    <head>
-        <meta charset="utf-8" />
-        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
-        <meta name="description" content="" />
-        <meta name="author" content="" />
-        <title>TU MERCADO</title>
-    </head>
-    <body id="page-top">
-     {% for ob in obj %}
-        {{p.titulo}}
-     {% endfor %}
-    </body>
-</html>
+{% extends "AppMercado/padre.html"%}
+
+{% load static %}
+
+{% block Masthead %}
+<div class="container">
+
+    <div class="masthead-heading text-uppercase">TU MERCADO</div>
+    <div class="masthead-subheading">Bienvenido a nuestro BLOG!</div>
+    <div class="masthead-subheading">{{ user.username }}</div>
+{% endblock %}
+
+{% block contenido %}
+        <!-- Main Content-->
+        <div class="container px-1 px-lg-0">
+            
+            <div class="row gx-4 gx-lg-5 justify-content-left">
+                
+
+                    <!-- Post preview-->
+                    <div class="d-flex justify-content-start mb-4"><a class="btn btn-primary text-uppercase" href={% url 'crear_post'%}>CREAR POST →</a></div>
+                    
+                    {% for ob in obj %}
+                    <div class="post-preview">
+                            <a href={% url "leer_post" ob.pk %}>
+                            <h2 class="post-title">{{ob.titulo}} 
+                            {% if ob.imagen %} 
+                            <img height="50px" src="{{ob.imagen.url}}">
+                            {% endif %} 
+                            </h2></a>    
+                        <h4 class="post-subtitle">{{ob.subtitulo}}</h4>
+                        {% comment %} <h5 class="post-subtitle">{{ob.cuerpo|safe}}</h5> {% endcomment %}
+                        
+                        <p class="post-meta">
+                            Posted on {{ob.fecha_publicacion}}
+                        </p>
+                        
+                    </div>
+                    {% if user.is_superuser %}
+                    <a href={% url "editar_post" ob.pk %}>>EDITAR POST</a></br>
+                    <a href={% url "borrar_post" ob.pk %}>>BORRAR POST</a>
+                    {% endif %}
+                    <!-- Divider-->
+                    <hr class="my-4" />
+                    {% endfor %}
+                                        
+
+            </div>
+        </div>
+    
+{% endblock %}

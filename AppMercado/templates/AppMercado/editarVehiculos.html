@@ -1,0 +1,27 @@
+{% extends "AppMercado/padre.html"%}
+
+{% load static %}
+
+{% block Masthead %}
+<div class="container">
+
+    <div class="masthead-heading text-uppercase">TU MERCADO</div>
+    <div class="masthead-subheading">Editar Vehiculo</div>
+{% endblock %}
+
+{% block contenido %}
+    ACTUALICE SUS DATOS Y DEL VEHICULO PUBLICADO
+    <div>------------------------------------------------ </div>
+    <form action="{% url 'editarVehiculos' vehiculos.id %}" method="POST"> {% csrf_token %}
+
+        <table>
+
+            {{ formulario.as_table }}
+    
+        </table>    
+        <p> <input type="submit" value="Actualizar"></p>
+
+    </form>
+
+{% endblock %}
+

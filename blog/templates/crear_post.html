@@ -1,4 +1,42 @@
-<form method="post">{% csrf_token %}
-    {{ form }}
-    <input type="submit" value="Crear Post">
-</form>
+{% extends "AppMercado/padre.html"%}
+
+{% load static %}
+
+{% block Masthead %}
+<div class="container">
+
+    <div class="masthead-heading text-uppercase">TU MERCADO</div>
+    <div class="masthead-subheading">Bienvenido a nuestro BLOG!</div>
+    <div class="masthead-subheading">{{ user.username }}</div>
+{% endblock %}
+
+{% block contenido %}
+        <!-- Main Content-->
+
+    <div>
+        <form method="post" enctype="multipart/form-data">{% csrf_token %}
+            {% if user.is_authenticated %}
+            </br>
+            <h7>Autor: {{ user.username }}</br></br></h7>
+
+            {{ form.media }}
+            
+            {{ form.as_p }}
+        
+            <input type="submit" value="Crear Post">
+        
+            {% else %}
+            <br></br>
+            
+            <a class="nav-link" href={% url 'login'%}>Inicia sesión para crear post!</a>
+            {% endif %}
+        
+        </form>
+    
+    <!-- Divider-->
+        <hr class="my-4" />
+            </div>
+    
+{% endblock %}
+
+

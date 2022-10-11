@@ -1,0 +1,27 @@
+{% extends "AppMercado/padre.html"%}
+
+{% load static %}
+
+{% block Masthead %}
+<div class="container">
+
+    <div class="masthead-heading text-uppercase">TU MERCADO</div>
+    <div class="masthead-subheading">Enviando mensaje</div>
+{% endblock %}
+
+{% block contenido %}
+    INGRESE EL MENSAJE A ENVIAR Y EL USERNAME DEL DESTINATARIO
+    <div>------------------------------------------------ </div>
+    <form action="{% url 'enviarmensaje' %}" method="POST"> {% csrf_token %}
+
+        <table>
+
+            {{ formulario.as_table }}
+    
+        </table>
+
+        <p> <input type="submit" value="Enviar"></p>
+
+    </form>
+
+{% endblock %}

@@ -13,12 +13,11 @@
     INGRESE SUS DATOS Y DEL MUEBLE A PUBLICAR
     <div>------------------------------------------------ </div>
     <form action="{% url 'mueblesFormulario' %}" method="POST"> {% csrf_token %}
-
         <table>
 
             {{ formulario.as_table }}
     
-        </table>    
+        </table> 
         <p> <input type="submit" value="Enviar"></p>
 
         {% comment %} <p> Item: <input type="text" name="nombre"</p>

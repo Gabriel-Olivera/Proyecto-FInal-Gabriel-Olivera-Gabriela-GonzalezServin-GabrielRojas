@@ -9,11 +9,10 @@
 {% endblock %}
 
 {% block contenido %}
-<div class="container">
-    <a class="navbar-brand"><a href={% url 'mueblesFormulario' %}>Publicar un nuevo mueble</a>
-<div>
-<div class="container">
-    <a class="navbar-brand"><a href={% url "busquedaMuebles"  %}>Buscar publicaciones de muebles</a>
-<div>
+
+<a class="navbar-brand"><a href={% url 'mueblesFormulario' %}>Publicar un nuevo mueble</a><br>
+<a class="navbar-brand"><a href={% url "busquedaMuebles"  %}>Buscar publicaciones de muebles</a><br>
+<a class="navbar-brand"><a href={% url "leerMuebles"  %}>Ver todas las publicaciones de muebles</a><br>
+
 {% endblock %}
 

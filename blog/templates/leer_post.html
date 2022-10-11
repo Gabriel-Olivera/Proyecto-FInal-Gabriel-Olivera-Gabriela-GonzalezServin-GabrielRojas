@@ -1,0 +1,25 @@
+{% extends "AppMercado/padre.html"%}
+
+{% load static %}
+
+{% block Masthead %}
+<div class="container">
+
+    <div class="masthead-heading text-uppercase">TU MERCADO</div>
+    <div class="masthead-subheading">Leyendo Post</div>
+{% endblock %}
+
+{% block contenido %}
+
+    <h1>{{blog.titulo}}
+    {% if blog.imagen %} 
+        <img height="200px" src="{{blog.imagen.url}}">
+    {% endif %} </h1>
+    <h3>{{blog.subtitulo}} </h3>
+    <h5>Posted on {{blog.fecha_publicacion}} </h5>
+    {{blog.cuerpo|safe}} 
+    
+    
+{% endblock %}
+
+

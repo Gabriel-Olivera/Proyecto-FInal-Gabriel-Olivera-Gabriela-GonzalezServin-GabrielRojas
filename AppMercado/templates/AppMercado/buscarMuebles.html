@@ -10,14 +10,15 @@
 {% endblock %}
 
 {% block contenido %}
-    Resultados de busqueda muebles
-    <div>------------------------------------------------ </div>
+    <h3>Resultados de busqueda muebles</h3>
     {% if muebles %}
         <ul>
             {% for mueble in muebles %}
-                <li>{{mueble.nombre}}</li>
-                <li>{{mueble.precio}}</li>
-                <li>{{mueble.email_contacto}}</li>
+                <li>Item: {{mueble.nombre}}</li>
+                <li>Material: {{mueble.email_contacto}}</li>
+                <li>Precio: {{mueble.precio}}</li>
+                <li>Email contacto: {{mueble.email_contacto}}</li>
+                <div>------------------------------------------------ </div>
                 <br>
             {% endfor %}
         </ul>

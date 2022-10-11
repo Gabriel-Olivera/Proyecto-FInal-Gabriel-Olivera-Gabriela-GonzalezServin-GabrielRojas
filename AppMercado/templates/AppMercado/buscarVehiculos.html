@@ -10,14 +10,15 @@
 {% endblock %}
 
 {% block contenido %}
-    Resultados de busqueda vehiculos
-    <div>------------------------------------------------ </div>
+    <h3>Resultados de busqueda vehiculos</h3>
     {% if vehiculos %}
         <ul>
             {% for vehiculo in vehiculos %}
-                <li>{{vehiculo.nombre}}</li>
-                <li>{{vehiculo.precio}}</li>
-                <li>{{vehiculo.email_contacto}}</li>
+                <li>Item: {{vehiculo.nombre}}</li>
+                <li>Marca: {{vehiculo.marca}}</li>
+                <li>Precio: {{vehiculo.precio}}</li>
+                <li>Email contacto: {{vehiculo.email_contacto}}</li>
+                <div>------------------------------------------------ </div>
                 <br>
             {% endfor %}
         </ul>

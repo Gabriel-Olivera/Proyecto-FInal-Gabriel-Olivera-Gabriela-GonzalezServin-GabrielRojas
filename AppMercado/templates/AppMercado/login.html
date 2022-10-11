@@ -1,0 +1,27 @@
+{% extends "AppMercado/padre.html"%}
+
+{% load static %}
+
+{% block Masthead %}
+<div class="container">
+
+    <div class="masthead-heading text-uppercase">TU MERCADO</div>
+    <div class="masthead-subheading">Iniciar sesión</div>
+{% endblock %}
+
+{% block contenido %}
+    INGRESE SUS DATOS PARA INGRESAR
+    <div>------------------------------------------------ </div>
+    <form action="{% url 'login' %}" method="POST"> {% csrf_token %}
+
+        <table>
+
+            {{ formulario.as_table }}
+    
+        </table>
+        <p> <input type="submit" value="Iniciar sesión"></p>
+    </form>
+    <h3>{{ mensaje }}</h3>
+    <a class="navbar-brand"><a href={% url 'register' %}>¿No tienes usuario? Registrate aquí!</a><br>
+{% endblock %}
+

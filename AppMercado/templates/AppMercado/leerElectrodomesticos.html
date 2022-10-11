@@ -1,0 +1,33 @@
+{% extends "AppMercado/padre.html"%}
+
+{% load static %}
+
+{% block Masthead %}
+<div class="container">
+
+    <div class="masthead-heading text-uppercase">TU MERCADO</div>
+    <div class="masthead-subheading">Listado de electrodomesticos publicados</div>
+{% endblock %}
+
+{% block contenido %}
+    <h3>Listado de electrodomesticos publicados</h3>
+    {% if electrodomesticos %}
+        <ul>
+            {% for electro in electrodomesticos %}
+                <li>Item: {{electro.nombre}}</li>
+                <li>Marca: {{electro.marca}}</li>
+                <li>Precio: {{electro.precio}}</li>
+                <li>Email contacto{{electro.email_contacto}}</li>
+                {% if user.is_superuser %}
+                <a class="navbar-danger"><a href={% url 'borrarElectrodomesticos' electro.id %}>Eliminar</a><br>
+                <a class="navbar-danger"><a href={% url 'editarElectrodomesticos' electro.id %}>Editar</a>
+                {% endif %}
+                <div>------------------------------------------------ </div>
+            {% endfor %}
+        </ul>
+    {% else %}
+    No se encontraron publicaciones
+    {% endif %}
+    <a class="navbar-brand"><a href={% url 'electrodomesticosFormulario' %}>Publicar un nuevo electrodomestico</a><br>
+{% endblock %}
+

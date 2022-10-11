@@ -1,0 +1,33 @@
+{% extends "AppMercado/padre.html"%}
+
+{% load static %}
+
+{% block Masthead %}
+<div class="container">
+
+    <div class="masthead-heading text-uppercase">TU MERCADO</div>
+    <div class="masthead-subheading">Listado de muebles publicados</div>
+{% endblock %}
+
+{% block contenido %}
+    <h3>Listado de muebles publicados</h3>
+    {% if muebles %}
+        <ul>
+            {% for mueble in muebles %}
+                <li>Item: {{mueble.nombre}}</li>
+                <li>Material: {{mueble.email_contacto}}</li>
+                <li>Precio: {{mueble.precio}}</li>
+                <li>Email contacto: {{mueble.email_contacto}}</li>
+                {% if user.is_superuser %}
+                <a class="navbar-danger"><a href={% url 'borrarMuebles' mueble.id %}>Eliminar</a><br>
+                <a class="navbar-danger"><a href={% url 'editarMuebles' mueble.id %}>Editar</a>
+                {% endif %}
+                <div>------------------------------------------------ </div>
+                {% endfor %}
+        </ul>
+        <a class="navbar-brand"><a href={% url 'mueblesFormulario' %}>Publicar un nuevo mueble</a><br>
+    {% else %}
+    No se encontraron publicaciones
+    {% endif %}
+{% endblock %}
+

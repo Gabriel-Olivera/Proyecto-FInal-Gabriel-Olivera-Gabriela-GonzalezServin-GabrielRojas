@@ -29,10 +29,18 @@
                 <div class="collapse navbar-collapse" id="navbarResponsive">
                     <ul class="navbar-nav text-uppercase ms-auto py-4 py-lg-0">
                         <li class="nav-item"><a class="nav-link" href={% url 'inicio'%}>Inicio</a></li>
+                        <li class="nav-item"><a class="nav-link" href={% url 'quienessomos'%}>Quienes somos</a></li>
                         <li class="nav-item"><a class="nav-link" href={% url 'electrodomesticos'%}>Electrodomesticos</a></li>
                         <li class="nav-item"><a class="nav-link" href={% url 'muebles'%}>Muebles</a></li>
                         <li class="nav-item"><a class="nav-link" href={% url 'vehiculos'%}>Vehiculos</a></li>
-                        <li class="nav-item"><a class="nav-link" href={% url 'inicio'%}>Contactanos!</a></li>
+                        <li class="nav-item"><a class="nav-link" href={% url 'listar_post'%}>Blog</a></li>
+                        {% if user.is_authenticated %}
+                        <li class="nav-item"><a class="nav-link" href={% url 'logout'%}>Logout</a></li>
+                        <li class="nav-item"><a class="nav-link" href={% url 'editarPerfil'%}>{{ user.username }}</a></li>
+                        <img height="50px" src="{{ avatar }}" alt="">
+                        {% else %}
+                        <li class="nav-item"><a class="nav-link" href={% url 'login'%}>Login</a></li>
+                        {% endif %}
                     </ul>
                 </div>
             </div>
@@ -40,7 +48,7 @@
         <!-- Masthead-->
         <header class="masthead">
                 {% block Masthead %}
-
+                
                 {% endblock %}
         </header>
         {% block contenido %}
@@ -51,7 +59,7 @@
         <footer class="footer py-4">
             <div class="container">
                 <div class="row align-items-center">
-                    <div class="col-lg-4 text-lg-start">Copyright &copy; Mercado 2022</div>
+                    <div class="col-lg-4 text-lg-start">Copyright &copy; TuMercado 2022</div>
                     <div class="col-lg-4 my-3 my-lg-0">
                         <a class="btn btn-dark btn-social mx-2" href="#!" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
                         <a class="btn btn-dark btn-social mx-2" href="#!" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>

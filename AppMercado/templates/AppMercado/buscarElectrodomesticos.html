@@ -10,14 +10,15 @@
 {% endblock %}
 
 {% block contenido %}
-    Resultados de busqueda electrodomesticos
-    <div>------------------------------------------------ </div>
+    <h3>Resultados de busqueda electrodomesticos</h3>
     {% if electrodomesticos %}
         <ul>
             {% for electro in electrodomesticos %}
-                <li>{{electro.nombre}}</li>
-                <li>{{electro.precio}}</li>
-                <li>{{electro.email_contacto}}</li>
+                <li>Item: {{electro.nombre}}</li>
+                <li>Marca: {{electro.marca}}</li>
+                <li>Precio: {{electro.precio}}</li>
+                <li>Email contacto: {{electro.email_contacto}}</li>
+                <div>------------------------------------------------ </div>
                 <br>
             {% endfor %}
         </ul>

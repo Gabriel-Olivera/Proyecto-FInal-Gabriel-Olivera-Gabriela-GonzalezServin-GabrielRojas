@@ -1,0 +1,33 @@
+{% extends "AppMercado/padre.html"%}
+
+{% load static %}
+
+{% block Masthead %}
+<div class="container">
+
+    <div class="masthead-heading text-uppercase">TU MERCADO</div>
+    <div class="masthead-subheading">Listado de vehiculos publicados</div>
+{% endblock %}
+
+{% block contenido %}
+    <h3>Listado de vehiculos publicados</h3>
+    {% if vehiculos %}
+        <ul>
+            {% for vehiculos in vehiculos %}
+                <li>Item: {{vehiculos.nombre}}</li>
+                <li>Marca: {{vehiculos.marca}}</li>
+                <li>Precio: {{vehiculos.precio}}</li>
+                <li>Email contacto: {{vehiculos.email_contacto}}</li>
+                {% if user.is_superuser %}
+                <a class="navbar-danger"><a href={% url 'borrarVehiculos' vehiculos.id %}>Eliminar</a><br>
+                <a class="navbar-danger"><a href={% url 'editarVehiculos' vehiculos.id %}>Editar</a>
+                {% endif %}
+                <div>------------------------------------------------ </div>
+            {% endfor %}
+        </ul>
+    {% else %}
+    No se encontraron publicaciones
+    {% endif %}
+    <a class="navbar-brand"><a href={% url 'vehiculosFormulario' %}>Publicar un nuevo vehiculo</a><br>
+{% endblock %}
+

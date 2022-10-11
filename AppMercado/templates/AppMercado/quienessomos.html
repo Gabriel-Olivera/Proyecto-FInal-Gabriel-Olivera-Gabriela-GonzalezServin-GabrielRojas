@@ -1,0 +1,31 @@
+{% extends "AppMercado/padre.html"%}
+
+{% load static %}
+
+{% block Masthead %}
+<div class="container">
+
+    <div class="masthead-heading text-uppercase">TU MERCADO</div>
+    <div class="masthead-subheading">Bienvenido a nuestra web {{ user.username }}</div>
+    
+{% endblock %}
+
+{% block contenido %}
+<h3>A CONTINUACIÓN NOS PRESENTAMOS NOSOTROS! </h3>
+
+<h5>NUESTRA HISTORIA</h5>
+'TU MERCADO' surge como nuestro proyecto final del curso 'Python' en el Instituto Coderhouse, Argentina
+<br></br>
+<h5>NUESTRO OBJETIVO</h5>
+Nuestro objetivo es poder brindar una aplicación donde los usuarios puedan compartir sus productos a vender.
+A su vez, incorporamos un blog para que los usuarios puedan compartir historias, artículos y/o noticias de su interés, buscando generar una comunidad.
+<br></br>
+Buscamos que quienes nos eligen tengan una gran experiencia!
+<br></br>
+<h5>NUESTRO EQUIPO </h5>
+Nuestro equipo está formado por:
+<li>Gabriela Gonzalez Servin </li>
+<li>Gabriel Olivera </li>
+<li>Gabriel Rojas </li>
+<br></br>
+{% endblock %}

@@ -12,6 +12,7 @@ https://docs.djangoproject.com/en/4.1/ref/settings/
 
 from pathlib import Path
 
+
 # import AppMercado
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
@@ -41,6 +42,10 @@ INSTALLED_APPS = [
     "django.contrib.staticfiles",
     "AppMercado.apps.AppmercadoConfig",
     "blog.apps.BlogConfig",
+    "ckeditor",
+    "chat",
+
+
 ]
 
 MIDDLEWARE = [
@@ -127,3 +132,10 @@ STATIC_URL = "static/"
 # https://docs.djangoproject.com/en/4.1/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
+
+LOGIN_URL = "/login/"
+
+MEDIA_URL='media/'
+MEDIA_ROOT=BASE_DIR / 'media'
+
+ASGI_APPLICATION = "Entrega1_OliveraRojasGonzalezServin.asgi.application"

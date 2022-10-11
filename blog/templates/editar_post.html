@@ -1,0 +1,35 @@
+{% extends "AppMercado/padre.html"%}
+
+{% load static %}
+
+{% block Masthead %}
+<div class="container">
+
+    <div class="masthead-heading text-uppercase">TU MERCADO</div>
+    <div class="masthead-subheading">Editando Post {{ user.username }}</div>
+{% endblock %}
+
+{% block contenido %}
+
+
+<div class="post-preview">
+                    <form method="post">{% csrf_token %}
+    {% if user.is_superuser %}
+
+        </br>
+        <h7>Editado por: {{ user.username }}</br></br></h7>
+
+        {{ form.media }}
+
+        {{ form.as_p }}
+
+        <input type="submit" value="Enviar cambios" href={% url 'inicio' %}>
+
+    {% else %}
+
+    <a class="nav-link" href={% url 'login'%}>Inicia sesión para editar post!</a>
+    
+    {% endif %}
+</div>
+{% endblock %}
+

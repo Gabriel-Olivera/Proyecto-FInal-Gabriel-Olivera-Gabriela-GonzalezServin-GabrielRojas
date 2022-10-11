@@ -1,0 +1,25 @@
+{% extends "AppMercado/padre.html"%}
+
+{% load static %}
+
+{% block Masthead %}
+<div class="container">
+
+    <div class="masthead-heading text-uppercase">TU MERCADO</div>
+    <div class="masthead-subheading">Borrando Post {{ user.username }}</div>
+{% endblock %}
+
+{% block contenido %}
+
+
+<div class="post-preview">
+    <form method="post">{% csrf_token %}
+    {% if user.is_authenticated %}
+    
+    <h5>Seguro que deseas borrar Post?!</h5>
+    <input type="submit" value="Borrar Post" href={% url 'inicio' %}>
+    {% else %}
+        <a class="nav-link" href={% url 'login'%}>Inicia sesión para borrar post!</a>
+    {% endif %}
+</div>
+{% endblock %}

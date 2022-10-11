@@ -9,10 +9,8 @@
 {% endblock %}
 
 {% block contenido %}
-<div class="container">
-    <a class="navbar-brand"><a href={% url 'vehiculosFormulario' %}>Publicar un nuevo vehiculo</a>
-<div>
-<div class="container">
-    <a class="navbar-brand"><a href={% url "busquedaVehiculos" %}>Buscar publicaciones de vehiculos</a>
+<a class="navbar-brand"><a href={% url 'vehiculosFormulario' %}>Publicar un nuevo vehiculo</a><br>
+<a class="navbar-brand"><a href={% url "busquedaVehiculos" %}>Buscar publicaciones de vehiculos</a><br>
+<a class="navbar-brand"><a href={% url "leerVehiculos" %}>Ver todas las publicaciones de vehiculos</a><br>
 <div>
 {% endblock %}

@@ -1,0 +1,33 @@
+{% extends "AppMercado/padre.html"%}
+
+{% load static %}
+
+{% block Masthead %}
+<div class="container">
+
+    <div class="masthead-heading text-uppercase">TU MERCADO</div>
+    <div class="masthead-subheading">Edición perfil usuario "{{usuario}}"</div>
+{% endblock %}
+
+{% block contenido %}
+    ACTUALIZACIÓN DEL PERFIL "{{usuario}}"
+    <div>------------------------------------------------ </div>
+    <form action="{% url 'editarPerfil' %}" method="POST"> {% csrf_token %}
+
+        <table>
+
+            {{ formulario.as_table }}
+    
+        </table>
+        <p> <input type="submit" value="Guardar"></p>
+    </form>
+    <h3>{{ mensaje }}</h3>
+    
+    <h5>Avatar</h5>
+    <img height="200px" src="{{ avatar }}" alt=""><br>
+    <a class="navbar-brand"><a href={% url 'agregarAvatar' %}>Editar avatar</a>
+    <br>
+    <a class="navbar-brand"><a href={% url 'chat' %}>Acceder al chat</a>
+
+{% endblock %}
+

@@ -1,0 +1,43 @@
+{% extends "AppMercado/padre.html"%}
+
+{% load static %}
+
+{% block Masthead %}
+<div class="container">
+
+    <div class="masthead-heading text-uppercase">TU MERCADO</div>
+    <div class="masthead-subheading">Mensajes recibidos</div>
+{% endblock %}
+
+{% block contenido %}
+    A CONTINUACIÓN SE MUESTRAN TODOS LOS MENSAJES
+    <div>------------------------------------------------ </div>
+    
+    {% comment %} {% for u in users %}
+    {{ u }}
+    {% endfor %} {% endcomment %}
+    {% if mensajes %}
+        <ul>
+            
+            {% for msj in mensajes %}
+                <li> Contenido: {{ msj.content }}</li>
+                <li> Enviado por:
+                    {% for item in lista %}
+                        {{ item }}
+                    {% endfor %}</li>
+                <li> Destinatario: {{ msj.destinatario }} </li>
+                <li> {{ msj.timestamp }}</li>
+                <a class="navbar-brand"><a href={% url 'enviarmensaje' %}>Responder</a>
+                {% comment %} <li>Enviado por: {{mueble.nombre}}</li>
+                <li>Precio: {{mueble.precio}}</li>
+                <li>Email contacto: {{mueble.email_contacto}}</li>
+                <a class="navbar-danger"><a href={% url 'borrarMuebles' mueble.id %}>Eliminar</a><br>
+                <a class="navbar-danger"><a href={% url 'editarMuebles' mueble.id %}>Editar</a> {% endcomment %}
+                <div>------------------------------------------------ </div>
+            {% endfor %}
+        </ul>
+    {% else %}
+    No se encontraron mensajes
+    {% endif %}
+
+{% endblock %}

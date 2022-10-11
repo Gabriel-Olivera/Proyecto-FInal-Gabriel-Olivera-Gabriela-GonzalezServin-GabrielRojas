@@ -9,11 +9,8 @@
 {% endblock %}
 
 {% block contenido %}
-    <div class="container">
-        <a class="navbar-brand"><a href={% url 'electrodomesticosFormulario' %}>Publicar un nuevo electrodomestico</a>
-    <div>
-    <div class="container">
-        <a class="navbar-brand"><a href={% url "busquedaElectrodomesticos" %}>Buscar publicaciones de electrodomestico</a>
-    <div>
+    <a class="navbar-brand"><a href={% url 'electrodomesticosFormulario' %}>Publicar un nuevo electrodomestico</a><br>
+    <a class="navbar-brand"><a href={% url "busquedaElectrodomesticos" %}>Buscar publicaciones de electrodomestico</a><br>
+    <a class="navbar-brand"><a href={% url "leerElectrodomesticos" %}>Ver todas las publicaciones de electrodomesticos</a><br>
 {% endblock %}
 
